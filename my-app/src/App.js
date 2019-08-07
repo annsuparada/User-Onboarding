@@ -1,5 +1,5 @@
 import React from 'react';
-import FormUser from './component/FormUser'
+import FormikUserForm from './component/UserForm'
 
 import './App.css';
 
@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <h1>User Onborading</h1>
       </header>
-      <FormUser />
+      <FormikUserForm />
     </div>
   );
 }
