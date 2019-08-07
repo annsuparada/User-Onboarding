@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
 
-const UserForm = ({ touched, errors, values }) => {
+const UserForm = ({ touched, errors, values, handleSubmit }) => {
     return(
         <div>
             <h2>This is a Form</h2>
@@ -25,7 +25,7 @@ const UserForm = ({ touched, errors, values }) => {
                     <Field
                         type="checkbox"
                         name="termsOfServices"
-                        checked=""
+                        checked={values.termsOfServices}
                     />
                 </lable>
             </Form>
@@ -51,7 +51,16 @@ const FormikUserForm = withFormik({
         email: Yup.string().required(),
         password: Yup.string().required(),
         termsOfServices: Yup.string().required()
-    })
+    }),
+
+    handleSubmit(values, { setStatus }) {
+        axios
+            .post(`https://reqres.in/api/users/`, values)
+            .then(res => {
+                setStatus(res.data)
+            })
+            .catch(err => console.log(err.response))
+    }
 
 })(UserForm)
 
