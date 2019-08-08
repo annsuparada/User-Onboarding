@@ -24,8 +24,8 @@
 }
 
 .error {
-  margin: 0;
-  position: absolute;
+  /* margin: 0; */
+  position: bottom;
   color: red;
 }
 
@@ -36,7 +36,9 @@ input:focus {
     0 0 0 3px rgba(0, 126, 255, 0.1);
   outline: none;
 }
-
+input{
+  margin-bottom: 10px;
+}
 input.error {
   border-color: red;
 }
